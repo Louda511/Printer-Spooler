@@ -7,7 +7,6 @@ Buffer* shared_buffer;
 int my_buffer_size;
 FILE *myLog;
 
-
 int isNumeric (const char * s)
 {
     if (s == NULL || *s == '\0' || isspace(*s))
@@ -115,8 +114,6 @@ int main(int argc, char *argv[]) {
             // release the critical section 
             sem_post(&shared_buffer->mutex);
             sem_post(&shared_buffer->empty);
-
-
 
             /* print the job */
             printf("Printer starts printing %i pages from Buffer[%i]\n", data, index);
