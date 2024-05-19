@@ -69,7 +69,6 @@ int main(int argc, char *argv[]) {
         /* release the critical section */
         sem_post(&shared_buffer->mutex);
 
-
         /* if the buffer is full */
         if(current_index == current_buffer_size) {
             printf("Client %i has %i page(s) to print, buffer full, sleeps\n", ID, data);
@@ -98,7 +97,6 @@ int main(int argc, char *argv[]) {
             fclose(myLog);
             // release printing mutex 
             sem_post(&shared_buffer->log_mutex);
-
 
             // place data in memory
             shared_buffer->queue[ shared_buffer->index ] = data;
@@ -146,8 +144,6 @@ int main(int argc, char *argv[]) {
         printf("Usage: ./client client_id number_pages\n");
         return 0;
     }
-
-
 
     return 0;
 }
